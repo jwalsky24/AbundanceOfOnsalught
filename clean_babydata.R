@@ -250,6 +250,35 @@ ncvTest(lm_2)
 durbinWatsonTest(lm_2)
 AIC(lm_2)
 
+#looking into first order interactions 
+lm_int_full <- lm(wt ~ (.)^2, data = babydata)
+summary(lm_int_full)
+autoplot(lm_int_full)
+AIC(lm_int_full)
+shapiro.test(lm_int_full$residuals)
+ncvTest(lm_int_full)
+durbinWatsonTest(lm_int_full)
+
+#looking at the high significance interactions and solo covariate
+lm_int_1 <- lm(wt ~ id + date + gestation + ht + number + ded + ded:dwt + race:age, data = babydata)
+summary(lm_int_1)
+autoplot(lm_int_1)
+AIC(lm_int_1)
+shapiro.test(lm_int_1$residuals)
+ncvTest(lm_int_1)
+durbinWatsonTest(lm_int_1)
+
+
+lm_int_2 <- lm(wt ~ id + gestation + number + ded + ded:dwt + race:age + ht:ded + gestation:dage, data = babydata)
+summary(lm_int_2)
+autoplot(lm_int_2)
+AIC(lm_int_2)
+shapiro.test(lm_int_2$residuals)
+ncvTest(lm_int_2)
+durbinWatsonTest(lm_int_2)
+
+#out of the models that take into consideration the interacting terms I prefer lm_int_2, but we could use lm_int_1 just as well
+lm_int_final <- lm_int_2
 
 #if we decide not to remove the outliers "261" and "979" I would choose lm_1 as the sqrt transformation seems to make change the result of the
 #ncvTest(lm_1_sqrt), providing strong evidence that the error variance changes with the level of the response (fitted values)
