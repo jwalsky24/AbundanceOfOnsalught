@@ -1,5 +1,3 @@
-
-
 #Modelling
 full_model <- lm(wt ~ ., data = babydata)
 summary(full_model)
