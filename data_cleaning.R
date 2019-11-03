@@ -4,6 +4,7 @@ str(babydata)
 babydata$pluralty<-NULL
 babydata$outcome<-NULL
 babydata$sex<-NULL
+babydata$id<-NULL
 names(babydata)[10]<-"mwt"
 for (i in babydata$pluralty){
   if (i != 5){
