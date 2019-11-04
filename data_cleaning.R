@@ -66,12 +66,6 @@ for (i in 1:1236){
 }
 rm(i)
 for (i in 1:1236){ 
-  if(babydata$drace[i]==99){
-    babydata$drace[i]=NA
-  }
-}
-rm(i)
-for (i in 1:1236){ 
   if(babydata$dage[i]==99){
     babydata$dage[i]=NA
   }
@@ -168,21 +162,24 @@ for (i in 1:1236){
     babydata$dht[i]= dht_cm
   }
 }
-babydata$ed[17]=6
-babydata$ed[51]=6
-babydata$ed[153]=6
-babydata$ed[378]=6
-babydata$ed[705]=6
-babydata$ed[902]=6
-babydata$ed[1004]=6
-babydata$ded[905]=6
-babydata$ded[477]=6
-babydata$ded[517]=6
-babydata$ded[403]=6
-babydata$ded[157]=6
-rm(dht_cm)
-rm(dwt_g)
-rm(ht_cm)
-rm(i)
-rm(mwt_g)
-rm(wt_g)
+babydata$ed[17] <- 6
+babydata$ed[51] <- 6
+babydata$ed[153] <- 6
+babydata$ed[378] <- 6
+babydata$ed[705] <- 6
+babydata$ed[902] <- 6
+babydata$ed[1004] <- 6
+babydata$ded[905] <- 6
+babydata$ded[477] <- 6
+babydata$ded[517] <- 6
+babydata$ded[403] <- 6
+babydata$ded[157] <- 6
+rm(dht_cm, dwt_g, ht_cm, i, mwt_g, wt_g)
+
+# Keep copy of original data
+babydata_orig <- babydata
+# Remove NAs prior to linear regression
+babydata <- na.omit(babydata)
+# examine data one last time
+str(babydata)
+
