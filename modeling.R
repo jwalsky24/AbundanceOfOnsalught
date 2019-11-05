@@ -1,4 +1,4 @@
-#Modelling
+# Modeling
 
 # Fit model with all possible variables
 full_model <- lm(wt ~ ., data = babydata)
