@@ -1,18 +1,18 @@
-##MODEL SELECTION & CROSS VALIDATION
+#MODEL SELECTION & CROSS VALIDATION
 
 #Create two data sets (train + validation)
 full_data <- babydata #contains 1236 observations
 train_data <- full_data[1:866,] #training data set, unordered. 866 observations (70%).
 cv_data <- full_data[867:1236,] #cross-validation data set, unordered. 369 observations (30%).
 
-#Modelling
+#Modeling
 full_model <- lm(wt ~ ., data = train_data)
 summary(full_model)
 install.packages(ggfortify)
 library(ggfortify)
 autoplot(full_model)
 
-#keeping only the covariates with  a significant p-value
+#keeping only the covariates with a significant p-value
 lm_1 <- lm(wt ~ id + date + gestation + ht + dwt + number, data = train_data)
 summary(lm_1)
 autoplot(lm_1)
