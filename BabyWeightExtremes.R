@@ -1,8 +1,8 @@
-#MT5762- BabyWeights
-#Code to look at extreme values of gestation and weight
+# Code to look at extreme values of gestation and weight
 
-#Extreme long and short gestation periods, generates a vector of indexes corresponding
-#to the babies with the extreme gestation periods
+# Extreme long and short gestation periods:
+# Generates a vector of indexes corresponding
+# to the babies with the extreme gestation periods
 extreme_long <- NULL
 extreme_short <- NULL
 for(i in 1:length(babydata$gestation)){
@@ -16,8 +16,9 @@ for(i in 1:length(babydata$gestation)){
   }
 }
 
-#Extreme thin and fat babies, generates a vector of indexes corresponding
-#to the babies with the extreme weights
+# Extreme thin and fat babies:
+# Generates a vector of indexes corresponding
+# to the babies with the extreme weights
 extreme_thin <- NULL
 extreme_fat <- NULL
 for(i in 1:length(babydata$wt)){
