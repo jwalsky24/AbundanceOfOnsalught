@@ -1,7 +1,6 @@
 #MT5762- BabyWeights
 #Code to look at extreme values of gestation and weight
 
-
 #Extreme long and short gestation periods, generates a vector of indexes corresponding
 #to the babies with the extreme gestation periods
 extreme_long <- NULL
