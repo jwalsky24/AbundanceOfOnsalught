@@ -1,22 +1,41 @@
+#Code to clean the given dataset
+
+#Read in the data
 babydata <- read.table("babies23.data", header = T)
 str(babydata)
 
-babydata$pluralty<-NULL
-babydata$outcome<-NULL
-babydata$sex<-NULL
-babydata$id<-NULL
-names(babydata)[10]<-"mwt"
+#Check the columns pluralty, outcome and sex for outliers
 for (i in babydata$pluralty){
   if (i != 5){
     print("Multiple fetus!")
   }
 }
+rm(i)
 for (i in babydata$outcome){
   if (i != 1){
     print("Dead baby!")
   }
 }
 rm(i)
+for (i in babydata$sex){
+  if (i != 1){
+    print("It's a girl!")
+  }
+}
+rm(i)
+
+#Delete the columns pluralty, outcome and sex, because all babies are singular feti, alive and male
+babydata$pluralty<-NULL
+babydata$outcome<-NULL
+babydata$sex<-NULL
+
+#Delte the column id, because it is not relevant for our analysis
+babydata$id<-NULL
+
+#Change the name of the column of mothers' weights, else we have two columns with the same name
+names(babydata)[10]<-"mwt"
+
+#Set the placeholders to NA when information is unknown or not asked 
 for (i in 1:1236){ 
   if(babydata$gestation[i]==999){
     babydata$gestation[i]=NA
@@ -95,9 +114,7 @@ for (i in 1:1236){
   }
 }
 rm(i)
-
 babydata$time[921]=NA
-
 for (i in 1:1236){ 
   if(babydata$number[i]==99){
     babydata$number[i]=NA
@@ -128,6 +145,8 @@ for (i in 1:1236){
   }
 }
 rm(i)
+
+#Change ounces, pounds and inches to gramms, kgs and cms
 for (i in 1:1236){ 
   if(is.na(babydata$wt[i])==FALSE){
     wt_g = babydata$wt[i]*28.34952
@@ -162,6 +181,8 @@ for (i in 1:1236){
     babydata$dht[i]= dht_cm
   }
 }
+
+#Merge levels 6 and 7 for educational level of mother and educational level of father
 babydata$ed[17] <- 6
 babydata$ed[51] <- 6
 babydata$ed[153] <- 6
