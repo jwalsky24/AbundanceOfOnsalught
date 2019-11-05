@@ -1,21 +1,17 @@
-### Investigation Into Predictors Of Birth Weight Among Human Babies Via Linear Regression Analysis
+## Investigation Into Predictors Of Birth Weight Among Human Babies Via Linear Regression Analysis
 
-#### MT5762 Group Project
-#### Team AbundanceOfOnsalught
-
-
+### MT5762 Group Project: Team Abundance Of Onsalught
 
 #### Team Members:
-ID# 150004238
-ID# 160015281
-ID# 180007719
-ID# 190001336
-ID# 190025615
-ID# 190027153
+ID# 150004238<br/>
+ID# 160015281<br/>
+ID# 180007719<br/>
+ID# 190001336<br/>
+ID# 190025615<br/>
+ID# 190027153<br/>
 <br/>
 <br/>
-<br/>
-<br/>
+
 
 #### Files included in the repository:
 
